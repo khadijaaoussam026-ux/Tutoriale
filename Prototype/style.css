@@ -1,1 +1,46 @@
 
+
+body {
+    font-family: Arial, sans-serif;
+    color: rgb(31, 31, 91);
+    background-color: rgb(213, 217, 219);
+    margin: 0;
+    line-height: 1.6;
+}
+
+header, footer {
+    background-color: rgb(86, 107, 139);
+    color: aliceblue;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px auto;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    background-color: aliceblue;
+    padding: 15px;
+    margin: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+main {
+    max-width: 900px;
+    padding: 20px;
+    margin: 20px auto;
+}
+
+section {
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
