@@ -48,7 +48,4 @@ CATEGORIE (0,N) ---- regroupe ---- (1,1) ARTICLE
 - Une catégorie peut regrouper zéro ou plusieurs articles.
 - Un article appartient à une seule catégorie.
 
-## 3. Remarque
-
-La donnée calculée `duree_lecture` est exclue du MCD.
 
