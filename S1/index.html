@@ -1,0 +1,1059 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FORGE — Ideas into impact</title>
+
+<style>
+:root {
+    --dark: #542338;
+    --rose: #963F5B;
+    --blush: #E9B7C5;
+    --bg: #FFF7F4;
+    --white: #FFFFFF;
+    --text: #38232C;
+    --muted: #816F76;
+    --line: #EEDDE2;
+    --soft: #F8E8ED;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--dark);
+}
+
+.logo span {
+    color: var(--rose);
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+    justify-content: end;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--rose);
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    margin-: 20px;
+    font-weight: bold;
+    transition: 0.25s;
+}
+
+.btn {
+    background: var(--dark);
+    color: white;
+    border: 1px solid var(--dark);
+    padding: 13px 20px;
+    border-radius: 8px;
+}
+
+.btn:hover {
+    background: var(--rose);
+    border-color: var(--rose);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--dark);
+    border: 1px solid #D7BAC4;
+    padding: 13px 20px;
+    border-radius: 8px;
+}
+
+.btn-outline:hover {
+    background: var(--soft);
+}
+
+.hero {
+    padding: 85px 8%;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.tag {
+    display: inline-block;
+    background: var(--soft);
+    color: var(--rose);
+    padding: 7px 12px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    color: var(--dark);
+    font-size: clamp(42px, 6vw, 70px);
+    letter-spacing: -3px;
+    line-height: 1.08;
+    max-width: 650px;
+}
+
+.hero h1 span {
+    color: var(--rose);
+}
+
+.hero p {
+    max-width: 490px;
+    margin: 22px 0;
+    color: var(--muted);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.hero-card {
+    background: var(--dark);
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 20px 45px #54233820;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.hero-card .small {
+    color: var(--blush);
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.hero-card h2 {
+    font-size: 27px;
+    line-height: 1.25;
+    margin: 15px 0;
+}
+
+.featured-idea {
+    background: #69344B;
+    padding: 18px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.featured-idea span {
+    color: var(--blush);
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.featured-idea p {
+    color: white;
+    margin: 8px 0 0;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    border-top: 1px solid #795367;
+    padding-top: 20px;
+    margin-top: 25px;
+}
+
+.stats strong {
+    display: block;
+    font-size: 24px;
+}
+
+.stats small {
+    color: var(--blush);
+    font-size: 11px;
+}
+
+section {
+    padding: 65px 8%;
+    scroll-margin-top: 85px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.section-heading h2 {
+    color: var(--dark);
+    font-size: 34px;
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    margin-top: 8px;
+}
+
+.categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 45px;
+}
+
+.category {
+    background: var(--white);
+    padding: 27px;
+    border: 1px solid var(--line);
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.category:hover {
+    transform: translateY(-5px);
+    border-color: var(--blush);
+    box-shadow: 0 12px 30px #5423380B;
+}
+
+.emoji {
+    display: inline-grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    background: var(--soft);
+    border-radius: 12px;
+    font-size: 24px;
+}
+
+.category h3 {
+    margin: 15px 0 8px;
+    color: var(--dark);
+}
+
+.category p {
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.category button {
+    background: transparent;
+    border: none;
+    color: var(--rose);
+    margin-top: 18px;
+}
+
+.workspace {
+    background: #F8EDEB;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.panel {
+    background: var(--white);
+    padding: 26px;
+    border: 1px solid var(--line);
+    border-radius: 15px;
+}
+
+.panel h3 {
+    font-size: 23px;
+    color: var(--dark);
+    margin-bottom: 5px;
+}
+
+.muted {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--dark);
+    margin: 18px 0 7px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #E4D4DA;
+    border-radius: 8px;
+    background: white;
+    color: var(--text);
+    font: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--rose);
+    box-shadow: 0 0 0 3px #963F5B12;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 115px;
+}
+
+.full {
+    width: 100%;
+    margin-top: 20px;
+}
+
+#formMessage {
+    margin-top: 12px;
+}
+
+.idea-toolbar {
+    display: flex;
+    gap: 10px;
+    margin: 18px 0;
+}
+
+.idea-toolbar input {
+    flex: 1;
+    min-width: 0;
+}
+
+.idea-toolbar select {
+    width: 135px;
+}
+
+.idea-list {
+    display: grid;
+    gap: 15px;
+}
+
+.idea-card {
+    background: white;
+    padding: 22px;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    animation: appear 0.35s ease;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.idea-type {
+    display: inline-block;
+    background: var(--soft);
+    color: var(--rose);
+    padding: 5px 9px;
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.idea-card h4 {
+    color: var(--dark);
+    font-size: 18px;
+    margin-bottom: 7px;
+}
+
+.idea-card p {
+    color: var(--muted);
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.idea-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+    padding-top: 13px;
+    border-top: 1px solid var(--line);
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.vote {
+    padding: 8px 12px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    background: var(--bg);
+    color: var(--dark);
+}
+
+.vote:hover, .vote.active {
+    background: var(--soft);
+    color: var(--rose);
+    border-color: var(--blush);
+}
+
+.ai-section {
+    background: var(--dark);
+    color: white;
+}
+
+.ai-section .section-heading h2 {
+    color: white;
+}
+
+.ai-section .section-heading p {
+    color: #E0C8D1;
+}
+
+.ai-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.ai-intro {
+    padding: 15px 0;
+}
+
+.ai-intro h3 {
+    font-size: 34px;
+    line-height: 1.2;
+    margin: 18px 0;
+}
+
+.ai-intro p {
+    color: #E0C8D1;
+    margin-bottom: 22px;
+}
+
+.ai-intro .btn {
+    background: var(--blush);
+    border-color: var(--blush);
+    color: var(--dark);
+}
+
+.ai-intro .btn:hover {
+    background: white;
+    border-color: white;
+}
+
+.ai-note {
+    font-size: 12px;
+    margin-top: 18px;
+}
+
+.ai-result {
+    background: #69344B;
+    padding: 25px;
+    border: 1px solid #80546A;
+    border-radius: 15px;
+}
+
+.ai-result h3 {
+    margin-bottom: 18px;
+}
+
+.ai-item {
+    background: #78435A;
+    padding: 16px;
+    border-radius: 10px;
+    margin-top: 12px;
+}
+
+.ai-item strong {
+    color: var(--blush);
+}
+
+.ai-item p {
+    color: #FFF0F4;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+footer {
+    padding: 28px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+footer strong {
+    color: var(--dark);
+}
+
+@media (max-width: 850px) {
+    header {
+        padding: 18px 5%;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .header-btn {
+        display: none;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 60px 5%;
+    }
+
+    section {
+        padding: 50px 5%;
+    }
+
+    .categories {
+        grid-template-columns: 1fr;
+    }
+
+    .layout, .ai-box {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        align-items: start;
+        flex-direction: column;
+    }
+
+    footer {
+        padding: 25px 5%;
+    }
+}
+
+@media (max-width: 450px) {
+    nav {
+        width: 100%;
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .idea-toolbar {
+        flex-direction: column;
+    }
+
+    .idea-toolbar select {
+        width: 100%;
+    }
+
+    .stats strong {
+        font-size: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">FORGE</div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#explore">Explore</a>
+        <a href="#share">Share an idea</a>
+    </nav>
+
+</header>
+
+<main>
+    <section class="hero" id="home">
+        <div>
+          
+            <h1>Your ideas can change <span>everything.</span></h1>  
+
+            <div class="hero-buttons">
+                <button class="btn" onclick="goToIdeas()">
+                    Share your idea ↗
+                </button>
+
+                <button class="btn-outline" onclick="goToExplore()">
+                    Explore ideas
+                </button>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <span class="small">✦ THE IDEA OF THE DAY</span>
+            <h2>Small ideas.<br>Big possibilities.</h2>
+
+            <div class="featured-idea">
+                <span>PRODUCT IDEA</span>
+                <p>
+                    Make reusable water bottles smarter with
+                    a simple hydration reminder.
+                </p>
+            </div>
+
+            <div class="stats">
+                <div>
+                    <strong id="statIdeas">3</strong>
+                    <small>Ideas</small>
+                </div>
+                <div>
+                    <strong id="statVotes">26</strong>
+                    <small>Votes</small>
+                </div>
+                <div>
+                    <strong>∞</strong>
+                    <small>Possibilities</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="explore">
+        <div class="section-heading">
+            <div>
+                <span class="tag">DISCOVER</span>
+                <h2>Every idea has a place.</h2>
+                <p>Choose your space and start creating change.</p>
+            </div>
+        </div>
+
+        <div class="categories">
+            <article class="category">
+                <div class="emoji">📦</div>
+                <h3>Product ideas</h3>
+                <p>
+                    Suggest features, improvements or new ways
+                    to make products better.
+                </p>
+                <button onclick="chooseType('product')">
+                    Share a product idea ↗
+                </button>
+            </article>
+
+            <article class="category">
+                <div class="emoji">💡</div>   
+                <h3>General ideas</h3>
+                <p>
+                    Talk about technology, education, everyday
+                    life or anything worth improving.
+                </p>
+                <button onclick="chooseType('general')">
+                    Share a general idea ↗
+                </button>
+            </article>
+
+            <article class="category">
+                <div class="emoji">✦</div>
+                <h3>FORGE AI</h3>
+                <p>   
+                    Discover common themes and help organizations
+                    understand community feedback.
+                </p>
+                <button onclick="goToAI()">
+                    Discover FORGE AI ↗
+                </button>
+            </article>
+        </div>
+    </section>
+
+    <section class="workspace" id="share">
+        <div class="section-heading">
+            <div>
+                <span class="tag">YOUR VOICE MATTERS</span>
+                <h2>Put your idea out there.</h2>
+                <p>Every improvement begins with a suggestion.</p>
+            </div>
+        </div>
+
+        <div class="layout">
+            <div class="panel">
+                <h3>Submit an idea ✦</h3>
+                <p class="muted">Tell the community what you think.</p>
+
+                <form id="ideaForm">
+                    <label for="type">Idea type</label>
+                    <select id="type">
+                        <option value="product">Product idea</option>
+                        <option value="general">General idea</option>
+                    </select>
+
+                    <label for="title">Idea title</label>
+                    <input id="title" type="text"
+                        placeholder="e.g. A smarter school bag"
+                        maxlength="100" required>
+
+                    <div id="productField">
+                        <label for="product">Product name</label>
+                        <input id="product" type="text"
+                            placeholder="e.g. Smart water bottle"
+                            maxlength="80">
+                    </div>
+
+                    <label for="category">Category</label>
+                    <select id="category">
+                        <option>Technology</option>
+                        <option>Education</option>
+                        <option>Environment</option>
+                        <option>Daily life</option>
+                        <option>Health & wellbeing</option>
+                        <option>Other</option>
+                    </select>
+
+                    <label for="description">Describe your idea</label>
+                    <textarea id="description"
+                        placeholder="What is the problem? How could your idea help?"
+                        maxlength="1000" required></textarea>
+
+                    <button class="btn full" type="submit">
+                        Publish my idea ↗
+                    </button>
+                </form>
+
+                <p class="muted" id="formMessage" role="status"></p>
+            </div>
+
+            <div>
+                <div class="section-heading">
+                    <div>
+                        <h2 style="font-size:27px">Community ideas</h2>
+                        <p>Discover ideas and support the ones you love.</p>
+                    </div>
+                </div>
+
+                <div class="idea-toolbar">
+                    <input id="search" type="search"
+                        placeholder="Search ideas...">
+
+                    <select id="filter">
+                        <option value="all">All ideas</option>
+                        <option value="product">Products</option>
+                        <option value="general">General</option>
+                    </select>
+                </div>
+
+                <div class="idea-list" id="ideaList"></div>
+
+                <p class="muted" id="emptyMessage"
+                    style="display:none; margin-top:20px">
+                    No ideas found. Try another search!
+                </p>
+            </div>
+        </div>
+    </section>
+
+   
+</main>
+
+<footer>
+    <div><strong>FORGE.</strong> Ideas into impact.</div>
+    <div>Built for curious minds and better solutions.</div>
+    <div>© 2026 FORGE</div>
+</footer>
+
+<script>
+const ideas = [
+    {
+        id: 1,
+        type: "product",
+        title: "A smarter water bottle",
+        product: "Reusable water bottle",
+        category: "Technology",
+        description: "Add a simple reminder that helps people remember to drink water.",
+        votes: 8
+    },
+    {
+        id: 2,
+        type: "general",
+        title: "A student skill-sharing community",
+        product: "",
+        category: "Education",
+        description: "Create a place where students can teach each other skills for free.",
+        votes: 12
+    },
+    {
+        id: 3,
+        type: "general",
+        title: "Less plastic in local shops",
+        product: "",
+        category: "Environment",
+        description: "Encourage reusable packaging and reward customers who bring their own bags.",
+        votes: 6
+    }
+];
+
+const form = document.getElementById("ideaForm");
+const type = document.getElementById("type");
+const productField = document.getElementById("productField");
+const ideaList = document.getElementById("ideaList");
+const search = document.getElementById("search");
+const filter = document.getElementById("filter");
+
+let nextId = 4;
+const votedIdeas = new Set();
+
+function goToIdeas() {
+    document.getElementById("share").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function goToExplore() {
+    document.getElementById("explore").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function goToAI() {
+    document.getElementById("forge-ai").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
+function chooseType(value) {
+    type.value = value;
+    updateForm();
+    goToIdeas();
+}
+
+function updateForm() {
+    productField.style.display =
+        type.value === "product" ? "block" : "none";
+}
+
+type.addEventListener("change", updateForm);
+
+function renderIdeas() {
+    const word = search.value.toLowerCase();
+    const selectedType = filter.value;
+
+    const filteredIdeas = ideas.filter(function(idea) {
+        const text = (
+            idea.title + " " +
+            idea.product + " " +
+            idea.description + " " +
+            idea.category
+        ).toLowerCase();
+
+        return text.includes(word) &&
+            (selectedType === "all" || idea.type === selectedType);
+    });
+
+    ideaList.innerHTML = "";
+
+    filteredIdeas.forEach(function(idea) {
+        const card = document.createElement("article");
+        card.className = "idea-card";
+
+        const badge = document.createElement("span");
+        badge.className = "idea-type";
+        badge.textContent = idea.type === "product"
+            ? "PRODUCT IDEA" : "GENERAL IDEA";
+
+        const title = document.createElement("h4");
+        title.textContent = idea.title;
+
+        const description = document.createElement("p");
+        description.textContent = idea.description;
+
+        const details = document.createElement("p");
+        details.style.marginTop = "8px";
+        details.textContent = idea.category +
+            (idea.product ? " · " + idea.product : "");
+
+        const footer = document.createElement("div");
+        footer.className = "idea-footer";
+
+        const label = document.createElement("span");
+        label.textContent = "Community suggestion";
+
+        const voteButton = document.createElement("button");
+        voteButton.className = "vote" +
+            (votedIdeas.has(idea.id) ? " active" : "");
+
+        voteButton.textContent = "▲ " + idea.votes +
+            (votedIdeas.has(idea.id) ? " · Voted" : " · Vote");
+
+        voteButton.addEventListener("click", function() {
+            if (votedIdeas.has(idea.id)) {
+                idea.votes--;
+                votedIdeas.delete(idea.id);
+            } else {
+                idea.votes++;
+                votedIdeas.add(idea.id);
+            }
+
+            renderIdeas();
+            updateStats();
+        });
+
+        footer.append(label, voteButton);
+        card.append(badge, title, description, details, footer);
+        ideaList.appendChild(card);
+    });
+
+    document.getElementById("emptyMessage").style.display =
+        filteredIdeas.length === 0 ? "block" : "none";
+}
+
+function updateStats() {
+    document.getElementById("statIdeas").textContent = ideas.length;
+
+    let totalVotes = 0;
+
+    ideas.forEach(function(idea) {
+        totalVotes += idea.votes;
+    });
+
+    document.getElementById("statVotes").textContent = totalVotes;
+}
+
+form.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const ideaType = type.value;
+    const title = document.getElementById("title").value.trim();
+    const product = document.getElementById("product").value.trim();
+    const category = document.getElementById("category").value;
+    const description =
+        document.getElementById("description").value.trim();
+    const message = document.getElementById("formMessage");
+
+    if (!title || !description) {
+        message.textContent = "Please complete the required fields.";
+        return;
+    }
+
+    if (ideaType === "product" && !product) {
+        message.textContent = "Please enter the product name.";
+        return;
+    }
+
+    ideas.unshift({
+        id: nextId++,
+        type: ideaType,
+        title: title,
+        product: ideaType === "product" ? product : "",
+        category: category,
+        description: description,
+        votes: 0
+    });
+
+    form.reset();
+    updateForm();
+    search.value = "";
+    filter.value = "all";
+
+    message.textContent = "Your idea has been published!";
+
+    renderIdeas();
+    updateStats();
+});
+
+search.addEventListener("input", renderIdeas);
+filter.addEventListener("change", renderIdeas);
+
+function analyzeIdeas() {
+    const total = ideas.length;
+    const categoryCounts = {};
+
+    ideas.forEach(function(idea) {
+        categoryCounts[idea.category] =
+            (categoryCounts[idea.category] || 0) + 1;
+    });
+
+    let popularCategory = "";
+    let highestCount = 0;
+
+    for (const category in categoryCounts) {
+        if (categoryCounts[category] > highestCount) {
+            highestCount = categoryCounts[category];
+            popularCategory = category;
+        }
+    }
+
+    document.getElementById("aiCount").textContent =
+        total + " ideas analyzed";
+
+    document.getElementById("aiSummary").textContent =
+        "The community has shared " + total +
+        " ideas across " + Object.keys(categoryCounts).length +
+        " different categories.";
+
+    document.getElementById("aiCategory").textContent =
+        popularCategory + " currently has the most submissions.";
+
+    document.getElementById("aiAction").textContent =
+        "Review the " + popularCategory +
+        " ideas and collect feedback before choosing an improvement.";
+}
+
+updateForm();
+renderIdeas();
+updateStats();
+</script>
+
+</body>
+</html>
